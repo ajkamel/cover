@@ -5,5 +5,9 @@
 <div>
   <h2><%= list.title %></h2>
   <p> <%= list.description %> </p>
+  <% list.books.each_with_index do |book, index| %>
+    <img src="<%= book.cover_image_url %>" alt="<%= book.title %>">
+    <% break if index >= 5  %>
+  <% end %>
 </div>
 <% end %>
