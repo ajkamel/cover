@@ -3,7 +3,7 @@ require "rails_helper"
 feature "User views all lists" do
   scenario "successfully" do
     create(:list, title: "Best Sci Fi")
-    book = create(:book, cover_image_url: 'http://placehold.it/140x100')
+    book = create(:book, cover_image_url: "http://placehold.it/140x100")
     list_2 = create(:list, title: "Based on a true story")
     list_2.books << book
 
