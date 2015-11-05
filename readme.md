@@ -1,4 +1,6 @@
-# Cover
+# Cover [![Code Climate](https://codeclimate.com/github/ajkamel/cover/badges/gpa.svg)](https://codeclimate.com/github/ajkamel/cover) [![Circle CI](https://circleci.com/gh/ajkamel/cover.svg?style=svg)](https://circleci.com/gh/ajkamel/cover)
+
+This app is a collaborative project used to recreate a service similar to BestReads.  Our goals were to follow Ruby best practices and is being reviewed as members of Thoughtbot's Upcase developer forum.
 
 ## Getting Started
 
