@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
-  has_and_belongs_to_many :lists
+  has_many :book_lists, dependent: :destroy
+  has_many :lists, through: :book_lists
 
   validates :title, presence: true
 end
