@@ -11,7 +11,6 @@ feature 'User views all lists' do
 
     expect(page).to have_content('Best Sci Fi')
     expect(page).to have_content('Based on a true story')
-    # expect(page).to have_css('img[src*="http://placehold.it/140x100"]')
-    expect(page).to have_css('img', text: '140x100')
+    expect(page).to have_css('img[src*="http://placehold.it/140x100"]')
   end
 end
