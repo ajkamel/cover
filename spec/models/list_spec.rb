@@ -12,7 +12,6 @@ RSpec.describe List, type: :model do
       books = create_list :book, 6
       list.books << books
 
-
       five_books = list.five_books
 
       expect(five_books.length).to eq 5
