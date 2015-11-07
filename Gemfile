@@ -54,6 +54,10 @@ group :test do
   gem "webmock"
 end
 
+group :test, :development, :staging do
+  gem "faker", require: false
+end
+
 group :staging, :production do
   gem "rack-timeout"
 end
