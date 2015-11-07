@@ -25,6 +25,7 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
+gem "kaminari"
 
 group :development do
   gem "spring"
