@@ -1,0 +1,7 @@
+section {
+  &.book-show {
+    @include outer-container;
+    aside { @include span-columns(3); }
+    article { @include span-columns(9); }
+  }
+}

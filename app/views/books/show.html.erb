@@ -1,0 +1,9 @@
+<section class='book-show'>
+  <aside>
+    <h2><%= @book.title %></h2>
+    <%= image_tag @book.cover_image_url, size: '150x150' %>
+  </aside>
+  <article>
+    <p><%= @book.description %></p>
+  </article>
+</section>
