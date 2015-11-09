@@ -1,0 +1,12 @@
+<h1>Lists</h1>
+
+
+<% @lists.each do |list| %>
+<div>
+  <h2><%= list.title %></h2>
+  <p> <%= list.description %> </p>
+  <% list.five_books.each do |book| %>
+    <%= image_tag book.cover_image_url, alt: book.title %>
+  <% end %>
+</div>
+<% end %>
