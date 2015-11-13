@@ -4,6 +4,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.
+      includes(reviews: :user).
+      find(params[:id])
   end
 end

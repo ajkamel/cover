@@ -7,3 +7,19 @@
     <p><%= @book.description %></p>
   </article>
 </section>
+<section class='review-section'>
+  <h3>User Reviews</h3>
+  <% @book.reviews.each do |review| %>
+    <%= content_tag :article do %>
+      <%= content_tag :p, review.body %>
+      <%= content_tag :p, review.rating %>
+      <%= content_tag :p, review.user_email %>
+    <% end %>
+  <% end %>
+  <% if signed_in? && !@book.reviewed_by?(current_user) %>
+    <p>
+      <%= link_to 'Add your review', new_book_review_path(@book) %>
+    </p>
+  <% end %>
+</section>
+

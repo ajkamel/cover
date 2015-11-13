@@ -1,0 +1,5 @@
+<%= simple_form_for [@book, @review] do |f| %>
+  <%= f.input :body %>
+  <%= f.select :rating, options_for_select(1..5) %>
+  <%= f.submit 'Save' %>
+<% end %>
