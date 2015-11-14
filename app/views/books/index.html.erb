@@ -1,7 +1,10 @@
 <h1>Books</h1>
+
+<%= render 'filter' %>
+
 <ul>
-  <% @books.each do |book| %>
-    <li><%= link_to book.title, book_path(book) %></li>
+  <%= content_tag_for(:li, @books) do |book| %>
+    <%= link_to book.title, book_path(book) %>
   <% end %>
 </ul>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113175707) do
+ActiveRecord::Schema.define(version: 20151114120455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,12 @@ ActiveRecord::Schema.define(version: 20151113175707) do
     t.string   "cover_image_url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "genre_id"
     t.integer  "author_id"
   end
 
   add_index "books", ["author_id"], name: "index_books_on_author_id", using: :btree
+  add_index "books", ["genre_id"], name: "index_books_on_genre_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -59,6 +61,12 @@ ActiveRecord::Schema.define(version: 20151113175707) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string   "title",       null: false
@@ -95,6 +103,7 @@ ActiveRecord::Schema.define(version: 20151113175707) do
   add_foreign_key "book_lists", "books", on_delete: :cascade
   add_foreign_key "book_lists", "lists", on_delete: :cascade
   add_foreign_key "books", "authors", on_delete: :cascade
+  add_foreign_key "books", "genres", on_delete: :cascade
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end
