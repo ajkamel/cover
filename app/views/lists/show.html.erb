@@ -1,13 +1,5 @@
 <%= content_tag_for(:section, @list) do %>
   <h2><%= @list.title %></h2>
   <p><%= @list.description %></p>
-  <ul>
-    <%= content_tag_for(:li, @list.books) do |book| %>
-        <%= link_to book_path(book) do %>
-          <%= image_tag book.cover_image_url, alt: book.title, id: "book-#{book.id}" %>
-          <h3><%= book.title %></h3>
-        <% end %>
-        <p><%= book.description %></p>
-    <% end %>
-  </ul>
+  <%= render 'books/collection_of_books', books: @list.books %>
 <% end %>

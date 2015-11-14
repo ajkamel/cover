@@ -14,7 +14,7 @@
   <tbody>
     <%= content_tag_for(:tr, @books) do |book| %>
       <td><%= link_to book.title, book_path(book) %></td>
-      <td><%= link_to image_tag(book.cover_image_url), book_path(book)  %></td>
+      <td><%= link_to book_cover(book), book_path(book)  %></td>
       <td><%= book.genre_name  %></td>
       <td><%= book.published_on  %></td>
     <% end %>

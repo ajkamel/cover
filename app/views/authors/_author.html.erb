@@ -1,8 +1,7 @@
 <%= div_for(@authors) do |author| %>
-    <h2><%= author.name %></h2>
+    <h2><%= link_to author.name, author_path(author) %></h2>
     <p> <%= author.biography %> </p>
     <% author.selected_books.each do |book| %>
-    <!-- TODO: link the image to the book's page  -->
-      <%= image_tag book.cover_image_url, alt: book.title, id: "book-#{book.id}" %>
+      <%= link_to book_cover(book), book_path(book) %>
     <% end %>
 <% end %>

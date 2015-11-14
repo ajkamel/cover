@@ -8,8 +8,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.
-      includes(reviews: :user).
-      find(params[:id])
+            includes(:author, reviews: :user).
+            find(params[:id])
   end
 
   private

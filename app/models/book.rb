@@ -6,10 +6,12 @@ class Book < ActiveRecord::Base
   belongs_to :genre
 
   validates :title, presence: true
+  validates :author, presence: true
 
   scope :by_genre, -> (genre_id) { where(genre_id: genre_id) }
 
   delegate :name, to: :genre, prefix: true, allow_nil: true
+  delegate :name, to: :author, prefix: true, allow_nil: true
 
   def reviewed_by?(user)
     reviews.exists?(user: user)
