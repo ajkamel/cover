@@ -5,7 +5,7 @@ Author.delete_all
 List.delete_all
 
 Book.transaction do
-  50.times do
+  50.times do |n|
     adj = Faker::Hacker.adjective
     noun = Faker::Hacker.noun
     color = Faker::Commerce.color
@@ -13,8 +13,10 @@ Book.transaction do
     paragraph_count = rand(3) + 1
     desc = Faker::Lorem.paragraph paragraph_count
     image = Faker::Avatar.image
+    published_on = n.years.ago
 
-    Book.create title: title, description: desc, cover_image_url: image
+    Book.create title: title, description: desc, cover_image_url: image,
+                published_on: published_on
   end
 end
 

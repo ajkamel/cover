@@ -1,9 +1,9 @@
 require "rails_helper"
 
-feature "User views all books" do
-  scenario "list all books" do
-    create(:book, title: "Practical Vim")
-    create(:book, title: "The Giver")
+feature 'User views all books' do
+  scenario 'list all books' do
+    create(:book, title: 'Practical Vim')
+    create(:book, title: 'The Giver')
 
     visit books_path
 
@@ -28,6 +28,16 @@ feature "User views all books" do
 
     expect(page).to have_book('Practical Vim')
     expect(page).not_to have_book('The Giver')
+  end
+
+  scenario 'sort by published date' do
+    create(:book, title: 'older_book', published_on: 3.years.ago)
+    create(:book, title: 'newer_book', published_on: 2.years.ago)
+
+    visit books_path
+    click_on('Published Date')
+
+    expect('older_book').to appear_before 'newer_book'
   end
 
   def have_pagination

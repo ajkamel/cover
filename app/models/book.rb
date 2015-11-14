@@ -9,6 +9,8 @@ class Book < ActiveRecord::Base
 
   scope :by_genre, -> (genre_id) { where(genre_id: genre_id) }
 
+  delegate :name, to: :genre, prefix: true, allow_nil: true
+
   def reviewed_by?(user)
     reviews.exists?(user: user)
   end
