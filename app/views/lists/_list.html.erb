@@ -1,0 +1,9 @@
+<%= div_for list do %>
+  <h2><%= link_to list.title, list_path(list) %></h2>
+  <p> <%= list.description %> </p>
+  <% list.five_books.each do |book| %>
+    <%= link_to book_path(book) do %>
+      <%= image_tag(book.cover_image_url, alt: book.title) %>
+    <% end %>
+  <% end %>
+<% end %>

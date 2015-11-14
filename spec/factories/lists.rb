@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :list do
-    title 'MyString'
-    description 'MyText'
+    title 'Title'
+    description 'description text'
 
     factory :list_with_books do
       transient do

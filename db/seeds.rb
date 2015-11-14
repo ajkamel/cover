@@ -1,5 +1,9 @@
 require 'faker'
 
+Book.delete_all
+Author.delete_all
+List.delete_all
+
 Book.transaction do
   50.times do
     adj = Faker::Hacker.adjective
@@ -20,5 +24,16 @@ Author.transaction do
     paragraph_count = rand(3) + 1
     biography = Faker::Lorem.paragraph paragraph_count
     Author.create name: name, biography: biography
+  end
+end
+
+List.transaction do
+  10.times do
+    adj = Faker::Hacker.adjective
+    noun = Faker::Hacker.noun
+    title = "#{adj} #{noun}"
+    description = Faker::Hacker.say_something_smart
+      
+    List.create title: title, description: description
   end
 end
