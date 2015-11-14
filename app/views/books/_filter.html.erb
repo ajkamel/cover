@@ -1,0 +1,7 @@
+<%= form_tag({}, method: :get) do %>
+  <%= label_tag :genre_id, 'Genre' %>
+  <%= select_tag :genre_id,
+                 options_from_collection_for_select(Genre.all, :id, :name, params[:genre_id]),
+                 include_blank: 'All' %>
+   <%= submit_tag 'Go' %>
+ <% end %>
