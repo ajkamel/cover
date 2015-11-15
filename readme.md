@@ -42,6 +42,6 @@ programming in style.
 
 ## Contributors
 
-[Samnang](https://github.com/samnang)
-[Evan](https://github.com/evan-007)
-[Ash](https://github.com/ajkamel)
+* [Samnang](https://github.com/samnang)
+* [Evan](https://github.com/evan-007)
+* [Ash](https://github.com/ajkamel)
