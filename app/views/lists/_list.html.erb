@@ -3,7 +3,7 @@
   <p> <%= list.description %> </p>
   <% list.five_books.each do |book| %>
     <%= link_to book_path(book) do %>
-      <%= image_tag(book.cover_image_url, alt: book.title) %>
+      <%= book_cover(book) %>
     <% end %>
   <% end %>
 <% end %>

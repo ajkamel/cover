@@ -1,0 +1,5 @@
+<%= div_for @author do %>
+  <h2><%= @author.name %></h2>
+  <p><%= @author.biography %></p>
+  <%= render 'books/collection_of_books', books: @author.books %>
+<% end %>

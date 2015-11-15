@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :book do
     sequence(:title) { |n| "Book title #{n}" }
     description 'A story about cows'
+    author
 
     trait :with_genre do
       genre

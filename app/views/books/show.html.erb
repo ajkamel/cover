@@ -1,7 +1,8 @@
 <section class='book-show'>
   <aside>
     <h2><%= @book.title %></h2>
-    <%= image_tag @book.cover_image_url, size: '150x150' %>
+    <h3><%= link_to @book.author_name, author_path(@book.author) %></h3>
+    <%= book_cover(@book, size: '150x150') %>
   </aside>
   <article>
     <p><%= @book.description %></p>
@@ -22,4 +23,3 @@
     </p>
   <% end %>
 </section>
-

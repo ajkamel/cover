@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   end
   resources :lists, only: [:index]
   resources :lists, only: [:index, :show]
-  resources :authors, only: [:index]
+  resources :authors, only: [:index, :show]
 end
