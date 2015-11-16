@@ -22,6 +22,14 @@ RSpec.describe Book, type: :model do
     end
   end
 
+  describe '#to_param' do
+    it 'returns friendly book view param' do
+      book = build_stubbed(:book, id: 1, title: 'This Title')
+
+      expect(book.to_param).to eq '1-this-title'
+    end
+  end
+
   describe '#update_avg_rating' do
     it 'updates the book rating' do
       book = create(:book)
