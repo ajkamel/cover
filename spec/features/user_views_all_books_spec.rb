@@ -40,6 +40,16 @@ feature 'User views all books' do
     expect('older_book').to appear_before 'newer_book'
   end
 
+  scenario 'sort by average review' do
+    create(:book, title: 'higher_rated_book', average_rating: 4)
+    create(:book, title: 'lower_rated_book', average_rating: 3)
+
+    visit books_path
+    click_on('Average Rating')
+
+    expect('lower_rated_book').to appear_before 'higher_rated_book'
+  end
+
   def have_pagination
     have_css('.pagination')
   end

@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
   def create
     @review = @book.reviews.build(review_params)
     if @review.save
+      RatingUpdatingJob.perform_later(@book)
       redirect_to book_path(@book), notice: 'Thanks for adding your review'
     else
       render :new

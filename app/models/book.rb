@@ -20,4 +20,8 @@ class Book < ActiveRecord::Base
   def to_param
     "#{id}-#{title.parameterize}"
   end
+
+  def update_avg_rating
+    update(average_rating: reviews.average(:rating))
+  end
 end

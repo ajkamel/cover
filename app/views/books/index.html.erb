@@ -8,6 +8,7 @@
       <td>Title</td>
       <td>Cover</td>
       <td>Genre</td>
+      <td><%= sortable 'average_rating', 'Average Rating' %></td>
       <td><%= sortable 'published_on', 'Published Date' %></td>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <td><%= link_to book.title, book_path(book) %></td>
       <td><%= link_to book_cover(book), book_path(book)  %></td>
       <td><%= book.genre_name  %></td>
+      <td><%= book.average_rating %></td>
       <td><%= book.published_on  %></td>
     <% end %>
   </tbody>
