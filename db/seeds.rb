@@ -4,6 +4,16 @@ Book.delete_all
 Author.delete_all
 List.delete_all
 Genre.delete_all
+Review.delete_all
+User.delete_all
+
+User.transaction do
+  10.times do
+    email = Faker::Internet.email
+    password = 'password'
+    User.create(email: email, password: password)
+  end
+end
 
 Genre.transaction do
   names = []
@@ -38,6 +48,16 @@ Book.transaction do
 
     Book.create title: title, description: desc, cover_image_url: image,
                 published_on: published_on, author: author, genre: genre
+  end
+end
+
+Review.transaction do
+  Book.all.take(10).each do |book|
+    user = User.all.sample
+    rating = rand(1..5)
+    body = Faker::Hacker.say_something_smart
+
+    Review.create(user: user, book: book, rating: rating, body: body)
   end
 end
 
