@@ -1,7 +1,7 @@
 <ul>
   <%= content_tag_for(:li, books) do |book| %>
       <%= link_to book_path(book) do %>
-        <%= book_cover(book) %>
+        <%= book_cover(book, size: '70x70') %>
         <h3><%= book.title %></h3>
       <% end %>
       <p><%= book.description %></p>

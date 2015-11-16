@@ -1,0 +1,9 @@
+section {
+  &.authors-index {
+    @include outer-container;
+  }
+}
+
+.author {
+  @include outer-container;
+}

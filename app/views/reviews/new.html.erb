@@ -1,5 +1,15 @@
-<%= simple_form_for [@book, @review] do |f| %>
-  <%= f.input :body %>
-  <%= f.select :rating, options_for_select(1..5) %>
-  <%= f.submit 'Save' %>
-<% end %>
+<section class='review-new'>
+  <h3>Please enter your review of <%= @book.title %></h3>
+  <%= simple_form_for [@book, @review] do |f| %>
+    <p>
+      <%= f.input :body, label: 'Your review',placeholder: 'How was the book?' %>
+    </p>
+    <p>
+      <%= f.label :rating %>
+      <%= f.select :rating, options_for_select(1..5) %>
+    </p>
+    <p>
+      <%= f.submit 'Save' %>
+    </p>
+  <% end %>
+</section>

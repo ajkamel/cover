@@ -2,6 +2,7 @@
     <h2><%= link_to author.name, author_path(author) %></h2>
     <p> <%= author.biography %> </p>
     <% author.selected_books.each do |book| %>
-      <%= link_to book_cover(book), book_path(book) %>
+      <%= link_to book_cover(book, size: '50x50'), book_path(book) %>
     <% end %>
+    <hr />
 <% end %>

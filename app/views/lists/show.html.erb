@@ -1,4 +1,4 @@
-<%= content_tag_for(:section, @list) do %>
+<%= content_tag_for(:section, @list, class: 'lists-show') do %>
   <h2><%= @list.title %></h2>
   <p><%= @list.description %></p>
   <%= render 'books/collection_of_books', books: @list.books %>

@@ -9,3 +9,13 @@ section {
     margin-top: 3em;
   }
 }
+
+section {
+  &.books-section {
+    @include outer-container;
+  }
+}
+
+.books-filter-input {
+  display: inline-block;
+}

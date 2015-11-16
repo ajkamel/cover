@@ -3,7 +3,8 @@
   <p> <%= list.description %> </p>
   <% list.five_books.each do |book| %>
     <%= link_to book_path(book) do %>
-      <%= book_cover(book) %>
+      <%= book_cover(book, size: '75x75') %>
     <% end %>
   <% end %>
+  <hr />
 <% end %>
