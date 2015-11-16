@@ -21,4 +21,16 @@ RSpec.describe Book, type: :model do
       expect(book.reviewed_by?(user_without_review)).to eq false
     end
   end
+
+  describe '#update_avg_rating' do
+    it 'updates the book rating' do
+      book = create(:book)
+      create(:review, rating: 3, book: book)
+      create(:review, rating: 5, book: book)
+
+      book.update_avg_rating
+
+      expect(book.average_rating).to eq 4
+    end
+  end
 end

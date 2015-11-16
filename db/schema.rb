@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115142523) do
+ActiveRecord::Schema.define(version: 20151116015128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,17 +34,19 @@ ActiveRecord::Schema.define(version: 20151115142523) do
   add_index "book_lists", ["list_id"], name: "index_book_lists_on_list_id", using: :btree
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",           null: false
+    t.string   "title",                       null: false
     t.text     "description"
     t.string   "cover_image_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "author_id",       null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "author_id",                   null: false
     t.integer  "genre_id"
     t.date     "published_on"
+    t.integer  "average_rating",  default: 0
   end
 
   add_index "books", ["author_id"], name: "index_books_on_author_id", using: :btree
+  add_index "books", ["average_rating"], name: "index_books_on_average_rating", using: :btree
   add_index "books", ["genre_id"], name: "index_books_on_genre_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
