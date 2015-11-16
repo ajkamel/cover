@@ -16,4 +16,8 @@ class Book < ActiveRecord::Base
   def reviewed_by?(user)
     reviews.exists?(user: user)
   end
+
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
 end
